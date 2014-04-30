@@ -1,0 +1,196 @@
+/* html, body {
+    outline: 0;
+    margin: 0;
+    left: 0;
+    top: 0;
+}
+
+.col-12 {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.col-11 {
+    width: 91.67%;
+    min-width: 91.67%;
+    max-width: 91.67%;
+}
+
+.col-10 {
+    width: 83.33%;
+    min-width: 83.33%;
+    max-width: 83.33%;
+}
+
+.col-9 {
+    width: 75%;
+    min-width: 75%;
+    max-width: 75%;
+}
+
+.col-8 {
+    width: 66.67%;
+    min-width: 66.67%;
+    max-width: 66.67%;
+}
+
+.col-7 {
+    width: 58.33%;
+    min-width: 58.33%;
+    max-width: 58.33%;
+}
+
+.col-6 {
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+}
+
+.col-5 {
+    width: 41.67%;
+    min-width: 41.67%;
+    max-width: 41.67%;
+}
+
+.col-4 {
+    width: 33.33%;
+    min-width: 33.33%;
+    max-width: 33.33%;
+}
+
+.col-3 {
+    width: 25%;
+    min-width: 25%;
+    max-width: 25%;
+}
+
+.col-2 {
+    width: 16.67%;
+    min-width: 16.67%;
+    max-width: 16.67%;
+}
+
+.col-1 {
+    width: 8.33%;
+    min-width: 8.33%;
+    max-width: 8.33%;
+}
+
+[class*='col-'] {
+    position: absolute;
+    min-height: 100%;
+    max-height: 100%;
+    height: 100%;
+}
+
+.hide {
+    display: none;
+    visibility: hidden;
+}
+
+.show {
+    display: inline-block;
+    visibility: visible;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.container {
+    position: relative;
+    left: 0;
+    top: 0;
+    margin: 0.5%;
+    outline: 0;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+}
+
+.wrapper {
+    position: absolute;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    width: 50%;
+    min-width: 50%;
+    max-width: 50%;
+}
+div.wrapper {
+    background: red;
+}
+span.wrapper {
+    background: green;
+    display: block;
+    left: 50%;
+} */
+
+html, body {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 12px;
+    font-weight: 100;
+}
+
+
+
+.dropdown {
+    cursor: pointer;
+    height: 24px;
+    line-height: 24px;
+    font-size: 18px;
+}
+
+.dropdown ul {
+    visibility: hidden;
+    /*margin: -3% 0 0 0;*/
+    margin-left: 0%;
+    margin-top: 0%;
+    margin-bottom: 0;
+    left: -3.25%;
+    position: relative;
+    width: 100%;
+}
+.dropdown ul li {
+    display: inline;
+    list-style: none;
+    position: relative;
+    top: 10px;
+    left: -2px;
+}
+/*.dropdown ul li::before {
+    content: " | ";
+}
+.dropdown ul li:nth-child(1)::before, .dropdown ul li:nth-child(1)::after {
+    content: "";
+}*/
+.dropdown:hover ul, .dropdown ul:hover {
+    visibility: visible;
+}
+
+.dropdown a {
+    color: #222;
+    text-decoration: none;
+}
+.dropdown a:hover {
+    /* background-color: rgba(143, 134, 134) transparent;
+    background-color: rgba(143, 134, 134, 0.5);
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#998F8686, endColorstr=#998F8686);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#998F8686, endColorstr=#998F8686)";
+    background-color: #8F8686;
+    opacity: 0.5; */
+    /*border-bottom: 1px dashed #ee00aa;*/
+}
+
+.button {
+    height: 100px;
+    background: rgba(37, 177, 231, 0.7);
+    border-radius: 6px;
+    min-height: 100px;
+    padding: 10px 20px;
+}

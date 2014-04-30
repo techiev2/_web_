@@ -1,0 +1,22 @@
+.red {
+    background: rgba(255, 0, 0, 0.2);
+}
+.green {
+    background: rgba(0, 255, 0, 0.24);
+    border-radius: 3px;
+}
+.left, .green {
+    position: absolute;
+    width: 90%;
+    margin: 0 auto;
+    height: 300px;
+    cursor: pointer;
+}
+.fade-in:hover {
+    transition: opacity .25s ease-in-out;
+    -moz-transition: opacity .25s ease-in-out;
+    -webkit-transition: opacity .25s ease-in-out;
+}
+.pushed-in {
+    padding: 1%;
+}
