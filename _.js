@@ -243,7 +243,8 @@
             var _elem;
             _elem = $$(this);
             if (_elem && _elem.length > 0) {
-                return _elem[0].innerText;
+                return _elem[0].innerText || _elem[0].innerHTML;
+                // Weirdly, some Firefox versions return undefined
             }
             return undefined;
         }
