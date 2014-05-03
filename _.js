@@ -221,12 +221,12 @@
             }
         },
         val: function (value) {
-            return $$(this).attr("value", value);
+            return $(this).attr("value", value);
         },
         html: function (value) {
             var _elem,
                 _;
-            _elem = $$(this);
+            _elem = $(this);
             if (!value) {
                 if (_elem && _elem.length > 0) {
                     return _elem[0].innerHTML;
@@ -240,13 +240,21 @@
             return _elem;
         },
         text: function (value) {
-            var _elem;
-            _elem = $$(this);
-            if (_elem && _elem.length > 0) {
-                return _elem[0].innerText || _elem[0].innerHTML;
-                // Weirdly, some Firefox versions return undefined
+            var _elem,
+                _;
+            _elem = $(this);
+            if (!value) {
+                if (_elem && _elem.length > 0) {
+                    return _elem[0].innerText || _elem[0].innerHTML;
+                    // Weirdly, some Firefox versions return undefined
+                }
+                return undefined;
             }
-            return undefined;
+            for (var i = 0; i < _elem.length; i += 1) {
+                _ = _elem[i];
+                _.innerText = value;
+            }
+            return _elem;
         }
     };
 
@@ -385,14 +393,41 @@
         }, 1);
     };
 
-    w.$$ = plugin;
+    plugin.after = function (duration, afterHandler) {
+        var _activator;
+        duration = parseInt(duration, 10);
+        if (!duration) {
+            console.log("Invalid duration specified. Defaulting to 1sec");
+            duration = 1000;
+        }
+        _activator = setTimeout(function () {
+            afterHandler();
+            clearTimeout(_activator);
+        }, duration);
+    };
+
+    plugin.repeat = function (duration, handler) {
+        var _activator;
+        duration = parseInt(duration, 10);
+        if (!duration) {
+            console.log("Invalid duration specified. Defaulting to 1sec");
+            duration = 1000;
+        }
+
+        _activator = setInterval(function () {
+            handler();
+        }, duration);
+        return this();
+    };
+
+    w.$ = plugin;
 
 }(window, window.document));
 
 
-function modelDataBinder() {
+/*function modelDataBinder() {
     var i = 0,
-        _elem,
+        _target,
         len,
         _elems,
         source;
@@ -401,15 +436,17 @@ function modelDataBinder() {
     len = _elems.length;
 
     for (; i < len; i += 1) {
-        _elem = _elems[i];
-        source = $$(_elem).attr("x-model-bind");
-        if (source) {
+        _target = _elems[i];
+        source = $$(_target).attr("x-model-bind");
+        if (source !== undefined) {
             source = $$(source);
-            if (source.length) {
+            if (source.length && source.length === 1) {
+                console.log($$(source)[0], ">>>", _target);
                 source.on("keyup", function (evt) {
                     var _key = (evt.keyCode || evt.which);
                     if (_key !== 13) {
-                        _elem.value = evt.target.value;
+                        console.log(evt.target, $$(_target));
+                        $$(_target).val(evt.target.value);
                     }
                 });
             }
@@ -423,4 +460,43 @@ $$.ready(function () {
 
     modelDataBinder();
 
+});*/
+
+
+$.ready(function () {
+
+    modelDataBinder();
+
 });
+
+
+function modelDataBinder() {
+    "use strict";
+
+    var i = 0,
+        _source,
+        _target,
+        _elem,
+        _model,
+        _elems = $("*"),
+        len = _elems.length;
+
+    for (; i < len; i += 1) {
+        _elem = _elems[i];
+        _model = $(_elem).attr("x-model-bind");
+        if (_model !== null) {
+            _target = _elem;
+            _source = $(_model);
+            _source.on("keyup", function (e) {
+                if ((e.keyCode || e.which) !== 13) {
+                    if (_target.nodeName.toLowerCase() === "input") {
+                        _target.value = e.target.value;
+                    } else {
+                        _target.innerText = e.target.value;
+                    }
+                }
+            });
+        }
+    }
+
+}
