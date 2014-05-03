@@ -194,3 +194,76 @@ html, body {
     min-height: 100px;
     padding: 10px 20px;
 }
+
+html, body {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    left: 0;
+    top: 0;
+    margin: 0;
+    outline: 0;
+}
+
+body {
+    font-family: "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    font-weight: 200px;
+}
+
+
+/* Inputs */
+input {
+    height: 30px;
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+
+    padding-left: 0.5%;
+
+    font-size: 15px;
+    font-weight: 100px;
+}
+
+input[type="text"], input[type="password"],
+input[type="email"], input[type="telephone"], textarea {
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+
+    outline: none;
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid #DDDDDD;
+
+}
+
+
+
+input[type="text"]:focus, input[type="password"]:focus,
+input[type="email"]:focus, input[type="telephone"]:focus,
+textarea:focus {
+    box-shadow: 0 0 5px rgba(181, 223, 238, 1);
+    padding: 3px 0px 3px 3px;
+    margin: 5px 1px 3px 0px;
+    border: 1px solid rgba(181, 223, 238, 1);
+}
+
+
+
+input:focus {
+    outline: none;
+}
+input:active {
+    box-shadow: 0 1px -1px red;
+    -moz-box-shadow: 0 1px -1px red;
+    -webkit-box-shadow: 0 1px -1px red;
+}
+
+/* Inputs end */
