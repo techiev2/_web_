@@ -1,5 +1,5 @@
-$$.ready(function () {
+$.ready(function () {
 
-    console.log($$("p").text());
+    console.log($("p").text());
 
 });
